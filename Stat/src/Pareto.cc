@@ -27,7 +27,7 @@
  */
 
 #include <math.h>
-#include <iostream.h>
+#include <iostream>
 
 #ifndef PARETO_H_
 #  include <Stat/Pareto.h>
@@ -44,8 +44,8 @@ double Pareto::pdf (double x)
 {
     if (x < _k)
     {
-	cerr
-		     << "Pareto::pdf - invalid value for x." << endl;
+        std::cerr
+		     << "Pareto::pdf - invalid value for x." << std::endl;
 	return 0;
     }
     
@@ -56,8 +56,8 @@ double Pareto::cdf (double x)
 {
     if (x < _k)
     {
-	cerr
-		     << "Pareto::cdf - invalid value for x." << endl;
+        std::cerr
+		     << "Pareto::cdf - invalid value for x." << std::endl;
 	return 0;
     }
 

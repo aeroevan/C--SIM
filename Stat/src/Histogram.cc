@@ -27,9 +27,9 @@
  */
 
 #include <errno.h>
-#include <iostream.h>
-#include <fstream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
 #ifndef HISTOGRAM_H_
 #  include <Stat/Histogram.h>
@@ -82,7 +82,7 @@ long Histogram::compositeSize (const Bucket& a, const Bucket& b) const
 
     // shouldn't get here!
 
-    cerr << "compositeSize switch error." << endl;
+    std::cerr << "compositeSize switch error." << std::endl;
     return 0;
 }
 
@@ -143,7 +143,7 @@ void Histogram::setValue (double value)
     PrecisionHistogram::setValue(value);
 }
 
-ostream& Histogram::print (ostream& strm) const
+std::ostream& Histogram::print (std::ostream& strm) const
 {
     strm << "Maximum number of buckets " << maxSize << "\n";
     strm << "Merge choice is ";
@@ -166,7 +166,7 @@ ostream& Histogram::print (ostream& strm) const
     return PrecisionHistogram::print(strm);
 }
 
-Boolean Histogram::saveState (ofstream& oFile) const
+Boolean Histogram::saveState (std::ofstream& oFile) const
 {
     if (!oFile)
 	return FALSE;
@@ -178,13 +178,13 @@ Boolean Histogram::saveState (ofstream& oFile) const
 
 Boolean Histogram::saveState (const char* fileName) const
 {
-    ofstream oFile(fileName, ios::out);
+    std::ofstream oFile(fileName, std::ios::out);
     Boolean result;
     
     if (!oFile)
     {
-	cerr << "Histogram::saveState - error " << errno
-		     << " for file " << fileName << endl;
+        std::cerr << "Histogram::saveState - error " << errno
+		     << " for file " << fileName << std::endl;
 	return FALSE;
     }
     
@@ -193,7 +193,7 @@ Boolean Histogram::saveState (const char* fileName) const
     return result;
 }
 
-Boolean Histogram::restoreState (ifstream& iFile)
+Boolean Histogram::restoreState (std::ifstream& iFile)
 {
     if (!iFile)
 	return FALSE;
@@ -208,13 +208,13 @@ Boolean Histogram::restoreState (ifstream& iFile)
 
 Boolean Histogram::restoreState (const char* fileName)
 {
-    ifstream iFile(fileName, ios::in);
+    std::ifstream iFile(fileName, std::ios::in);
     Boolean result;
     
     if (!iFile)
     {
-	cerr << "Histogram::restoreState - error " << errno
-		     << " for file " << fileName << endl;
+        std::cerr << "Histogram::restoreState - error " << errno
+		     << " for file " << fileName << std::endl;
 	return FALSE;
     }
     

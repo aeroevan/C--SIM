@@ -31,7 +31,7 @@
 #ifndef PROCESS_H_
 #define PROCESS_H_
 
-#include <iostream.h>
+#include <iostream>
 
 #ifndef CONFIGURE_H_
 #  include <Config/Configure.h>
@@ -80,7 +80,7 @@ public:
 
     static Boolean simulationStarted ();
 
-    static void print (ostream&);
+    static void print (std::ostream&);
 
 protected:
     Scheduler ();

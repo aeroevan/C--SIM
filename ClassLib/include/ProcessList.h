@@ -63,12 +63,12 @@ public:
 
     ProcessCons* operator[] (int);
 
-    ostream& print (ostream&) const;
+    std::ostream& print (std::ostream&) const;
 
 private:
     ProcessCons *Head;
 };
 
-extern ostream& operator<< (ostream& strm, const ProcessList& pl);
+extern std::ostream& operator<< (std::ostream& strm, const ProcessList& pl);
 
 #endif

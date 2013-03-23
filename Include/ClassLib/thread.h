@@ -31,7 +31,7 @@
 #ifndef THREAD_H_
 #define THREAD_H_
 
-#include <iostream.h>
+#include <iostream>
 
 #ifndef RESOURCE_H_
 #  include <Common/Resource.h>
@@ -76,8 +76,8 @@ public:
 
     static void Initialize ();
 
-    virtual ostream& print (ostream&) const;
-    static  ostream& printAll (ostream&);
+    virtual std::ostream& print (std::ostream&) const;
+    static  std::ostream& printAll (std::ostream&);
 
 protected:
     Thread (Boolean create = TRUE);
@@ -114,6 +114,6 @@ protected:
     virtual ~Mutex ();
 };
 
-extern ostream& operator<< (ostream& strm, const Thread& t);
+extern std::ostream& operator<< (std::ostream& strm, const Thread& t);
 
 #endif

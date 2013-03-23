@@ -63,10 +63,10 @@ private:
 
 public:
     virtual Boolean saveState (const char*) const;
-    virtual Boolean saveState (ofstream&) const;
+    virtual Boolean saveState (std::ofstream&) const;
     
     virtual Boolean restoreState (const char*);
-    virtual Boolean restoreState (ifstream&);
+    virtual Boolean restoreState (std::ifstream&);
 };
 
 #include <Stat/TimeVariance.n>

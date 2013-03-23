@@ -370,7 +370,7 @@ void Thread::Resume ()
 #endif    
 }
 
-ostream& Thread::print (ostream& strm) const
+std::ostream& Thread::print (std::ostream& strm) const
 {
     strm << "Thread type is pthreads.\n";
     strm << "\nThread key: " << thread_key << "\n";

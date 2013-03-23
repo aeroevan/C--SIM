@@ -33,10 +33,12 @@
 */
 
 #include <stdlib.h>	// to get getopt and atoi
-#include <iostream.h>
+#include <iostream>
+#include <unistd.h>
 
 #include <ClassLib/Random.h>
 
+using namespace std;
 
 void Gen (int count, RandomStream *r)
 {

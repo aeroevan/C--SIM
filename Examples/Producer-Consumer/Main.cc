@@ -28,8 +28,10 @@
  * $Id: Main.cc,v 1.2 1998/09/30 08:07:18 nmcl Exp $
  */
 
-#include <iostream.h>
-#include <string.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 #ifndef BOOLEAN_H_
 #  include <Common/Boolean.h>

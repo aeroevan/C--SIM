@@ -52,7 +52,7 @@ Entity::~Entity ()
 {
 #ifdef DEBUG
     debug_stream << DESTRUCTORS << FAC_ENTITY << VIS_PUBLIC;
-    debug_stream << "Entity::~Entity ()" << endl;
+    debug_stream << "Entity::~Entity ()" << std::endl;
 #endif
 }
 
@@ -69,12 +69,12 @@ Boolean Entity::WaitFor (Entity& controller, Boolean reAct)
 {
 #ifdef DEBUG
     debug_stream << FUNCTIONS << FAC_ENTITY << VIS_PROTECTED;
-    debug_stream << "Boolean Entity::WaitFor (Entity& controller, Boolean reAct)" << endl;
+    debug_stream << "Boolean Entity::WaitFor (Entity& controller, Boolean reAct)" << std::endl;
 #endif
 
     if (&controller == this)      // can't wait on self!
     {
-        cerr << "Entity::WaitFor - cannot wait on self!" << endl;
+        std::cerr << "Entity::WaitFor - cannot wait on self!" << std::endl;
 	return FALSE;
     }
 
@@ -102,7 +102,7 @@ Boolean Entity::WaitForTrigger (TriggerQueue& _queue)
 {
 #ifdef DEBUG
     debug_stream << FUNCTIONS << FAC_ENTITY << VIS_PROTECTED;
-    debug_stream << "Boolean Entity::WaitForTrigger (TriggerQueue& _queue)" << endl;
+    debug_stream << "Boolean Entity::WaitForTrigger (TriggerQueue& _queue)" << std::endl;
 #endif
     
     _queue.insert(this);
@@ -133,7 +133,7 @@ Boolean Entity::Wait (double waitTime)
 {
 #ifdef DEBUG
     debug_stream << FUNCTIONS << FAC_ENTITY << VIS_PROTECTED;
-    debug_stream << "Boolean Entity::Wait ( " << waitTime << " )" << endl;
+    debug_stream << "Boolean Entity::Wait ( " << waitTime << " )" << std::endl;
 #endif
 
     _waiting = TRUE;
@@ -162,20 +162,20 @@ Boolean Entity::Interrupt (Entity& toInterrupt, Boolean immediate)
 {
 #ifdef DEBUG
     debug_stream << FUNCTIONS << FAC_ENTITY << VIS_PUBLIC;
-    debug_stream << "Boolean Entity::Interrupt (Entity& toInterrupt, Boolean immediate)" << endl;
+    debug_stream << "Boolean Entity::Interrupt (Entity& toInterrupt, Boolean immediate)" << std::endl;
 #endif
     
     if (toInterrupt.terminated())
     {
 #ifdef DEBUG
-	cerr << "Interrupt called on terminated object." << endl;
+        std::cerr << "Interrupt called on terminated object." << std::endl;
 #endif
 	return FALSE;
     }
     
     if (!toInterrupt._waiting)
     {
-        cerr << "Interrupt called on object which is not in wait state." << endl;
+        std::cerr << "Interrupt called on object which is not in wait state." << std::endl;
         return FALSE;
     }
     
@@ -206,7 +206,7 @@ Entity::Entity ()
 {
 #ifdef DEBUG
     debug_stream << CONSTRUCTORS << FAC_ENTITY << VIS_PROTECTED;
-    debug_stream << "Entity::Entity ()" << endl;
+    debug_stream << "Entity::Entity ()" << std::endl;
 #endif
 }
 
@@ -219,7 +219,7 @@ Entity::Entity (unsigned long stackSize)
 {
 #ifdef DEBUG
     debug_stream << CONSTRUCTORS << FAC_ENTITY << VIS_PROTECTED;
-    debug_stream << "Entity::Entity ( " << stackSize << " )" << endl;
+    debug_stream << "Entity::Entity ( " << stackSize << " )" << std::endl;
 #endif
 }
 
@@ -233,7 +233,7 @@ void Entity::terminate ()
 {
 #ifdef DEBUG
     debug_stream << FUNCTIONS << FAC_ENTITY << VIS_PUBLIC;
-    debug_stream << "void Entity::terminate ()" << endl;
+    debug_stream << "void Entity::terminate ()" << std::endl;
 #endif
     
     if (_isWaiting)  // resume waiting process before this one "dies".

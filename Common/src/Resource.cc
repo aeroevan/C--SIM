@@ -28,7 +28,7 @@
  * $Id: Resource.cc,v 1.1 1995/02/28 13:26:10 nmcl Exp $
  */
 
-#include <iostream.h>
+#include <iostream>
 
 #ifndef RESOURCE_H_
 #   include <Common/Resource.h>
@@ -47,8 +47,8 @@ Resource::Resource ()
 Resource::~Resource ()
 {
     if ((_referenceCount != 0) && (heapAllocated))
-        cerr << "Resource::~Resource : _referenceCount = "
-	     << _referenceCount << endl;
+        std::cerr << "Resource::~Resource : _referenceCount = "
+	     << _referenceCount << std::endl;
 }
 
 /*
@@ -71,7 +71,7 @@ Boolean Resource::unref (Resource* resource)
             resource->_referenceCount--;
         else
 	    if (resource->heapAllocated)
-	        cerr << "Resource::unref : _referenceCount == 0" << endl;
+	        std::cerr << "Resource::unref : _referenceCount == 0" << std::endl;
 
         if ((resource->_referenceCount == 0) && (resource->heapAllocated))
         {

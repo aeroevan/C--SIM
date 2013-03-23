@@ -29,7 +29,7 @@
 
 #if defined(NO_INLINES) && !defined(MEAN_CC_)
 
-extern ostream& operator<< (ostream& strm, const Mean& m);
+extern std::ostream& operator<< (std::ostream& strm, const Mean& m);
 
 #else
 
@@ -70,7 +70,7 @@ INLINEF double Mean::mean () const
     return _Mean;
 }
 
-INLINEF ostream& operator<< (ostream& strm, const Mean& m)
+INLINEF std::ostream& operator<< (std::ostream& strm, const Mean& m)
 {
     return m.print(strm);
 }

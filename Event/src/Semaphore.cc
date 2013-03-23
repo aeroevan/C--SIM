@@ -50,7 +50,7 @@ Semaphore::Semaphore ()
 {
 #ifdef DEBUG
     debug_stream << CONSTRUCTORS << FAC_SEMAPHORE << VIS_PUBLIC;
-    debug_stream << "Semaphore::Semaphore ()" << endl;
+    debug_stream << "Semaphore::Semaphore ()" << std::endl;
 #endif    
 }
 
@@ -62,7 +62,7 @@ Semaphore::Semaphore (long number, Boolean ceiling)
 {
 #ifdef DEBUG
     debug_stream << CONSTRUCTORS << FAC_SEMAPHORE << VIS_PUBLIC;
-    debug_stream << "Semaphore::Semaphore ( " << number << " )" << endl;
+    debug_stream << "Semaphore::Semaphore ( " << number << " )" << std::endl;
 #endif    
 }
 
@@ -70,12 +70,12 @@ Semaphore::~Semaphore ()
 {
 #ifdef DEBUG
     debug_stream << DESTRUCTORS << FAC_SEMAPHORE << VIS_PUBLIC;
-    debug_stream << "Semaphore::~Semaphore ()" << endl;
+    debug_stream << "Semaphore::~Semaphore ()" << std::endl;
 #endif
     
     if (numberWaiting != 0)
-	cerr
-		     << "Semaphore being removed with clients waiting." << endl;
+	std::cerr
+		     << "Semaphore being removed with clients waiting." << std::endl;
 }
 
 long Semaphore::NumberWaiting () const

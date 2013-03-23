@@ -28,7 +28,7 @@
  * $Id: thread.cc,v 1.15 1998/08/28 14:19:45 nmcl Exp $
  */
 
-#include <iostream.h>
+#include <iostream>
 
 #if defined(DEBUG) && !defined(DEBUG_H_)
 #  include <Common/Debug.h>
@@ -95,7 +95,7 @@ Thread* Thread::Self ()
 
 // go through list and print out information on all threads
 
-ostream& Thread::printAll (ostream& strm)
+std::ostream& Thread::printAll (std::ostream& strm)
 {
     strm << "\n";
     for (Thread* marker = _head; marker; marker = marker->next)
@@ -104,7 +104,7 @@ ostream& Thread::printAll (ostream& strm)
     return strm;
 }
 
-ostream& operator<< (ostream& strm, const Thread& t)
+std::ostream& operator<< (std::ostream& strm, const Thread& t)
 {
     return t.print(strm);
 }

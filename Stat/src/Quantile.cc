@@ -37,7 +37,7 @@ Quantile::Quantile (double q)
 		   : qProb(((q > 0.0) && (q <= 1.0)) ? q : 0.95)
 {
     if ((q <= 0.0) || (q > 1.0))
-	cerr << "Quantile::Quantile ( " << q << " ) : bad value." << endl;
+	std::cerr << "Quantile::Quantile ( " << q << " ) : bad value." << std::endl;
 }
 
 Quantile::~Quantile () {}
@@ -50,7 +50,7 @@ double Quantile::operator() () const
 
     if (pSamples == 0.0)
     {
-	cerr << "Quantile::operator() : percentage samples error." << endl;
+        std::cerr << "Quantile::operator() : percentage samples error." << std::endl;
 	return 0.0;
     }
     
@@ -64,7 +64,7 @@ double Quantile::operator() () const
     return trail->Name();
 }
 
-ostream& Quantile::print (ostream& strm) const
+std::ostream& Quantile::print (std::ostream& strm) const
 {
     strm << "Quantile precentage : " << qProb << "\n";
     strm << "Value below which percentage occurs " << (*this)() << "\n";

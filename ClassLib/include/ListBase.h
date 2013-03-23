@@ -31,7 +31,7 @@
 #ifndef LISTBASE_H_
 #define LISTBASE_H_
 
-#include <iostream.h>
+#include <iostream>
 
 #ifndef BOOLEAN_H_
 #  include <Common/Boolean.h>
@@ -52,7 +52,7 @@ public:
     virtual Process *Remove (const Process*) = 0;
     virtual const Process* getNext (const Process*) const = 0;
 
-    virtual ostream& print (ostream&) const = 0;
+    virtual std::ostream& print (std::ostream&) const = 0;
 
 protected:
     ListBase () {};

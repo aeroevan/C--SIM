@@ -27,7 +27,9 @@
  */
 
 
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 #ifndef PROCESSOR_H_
 #  include "Processor.h"

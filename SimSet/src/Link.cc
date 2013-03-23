@@ -32,7 +32,7 @@
  */
 
 
-#include <iostream.h>
+#include <iostream>
 
 #ifndef LINK_H_
 #  include <SimSet/Link.h>

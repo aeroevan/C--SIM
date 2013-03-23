@@ -120,7 +120,7 @@ INLINEF Boolean PrecisionHistogram::isPresent (double value)
     return sizeByName(value, dummy);  
 }
 
-INLINEF ostream& operator<< (ostream& strm, const PrecisionHistogram& ph)
+INLINEF std::ostream& operator<< (std::ostream& strm, const PrecisionHistogram& ph)
 {
     return ph.print(strm);
 }

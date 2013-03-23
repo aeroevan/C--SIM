@@ -34,7 +34,7 @@
 #  include "ProcessIterator.h"
 #endif
 
-#include <iostream.h>
+#include <iostream>
 
 
 ProcessList::ProcessList () { Head = (ProcessCons*) 0; }
@@ -164,7 +164,7 @@ Process *ProcessList::Remove (const Process *element)
     return (Process*) 0;
 }
 
-ostream& ProcessList::print (ostream& strm) const
+std::ostream& ProcessList::print (std::ostream& strm) const
 {
     ProcessIterator iter(*this);
     int count = 1;
@@ -185,7 +185,7 @@ ProcessCons* ProcessList::operator[] (int index)
     return ptr;
 }
 
-ostream& operator<< (ostream& strm, const ProcessList& pl)
+std::ostream& operator<< (std::ostream& strm, const ProcessList& pl)
 {
     return pl.print(strm);
 }

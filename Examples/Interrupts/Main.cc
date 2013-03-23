@@ -26,8 +26,10 @@
  * UK.
  */
 
-#include <iostream.h>
-#include <string.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 #ifndef CONFIGURE_H_
 #  include <Config/Configure.h>

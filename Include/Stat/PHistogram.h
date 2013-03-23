@@ -37,7 +37,7 @@
 #  include <Stat/Variance.h>
 #endif
 
-#include <iostream.h>
+#include <iostream>
 
 
 class Bucket
@@ -107,7 +107,7 @@ public:
 
     virtual Boolean bucketName (long index, double& name);
     
-    virtual ostream& print (ostream&) const;
+    virtual std::ostream& print (std::ostream&) const;
 
 protected:
     virtual void add (Bucket*, double, Boolean = FALSE);
@@ -120,10 +120,10 @@ protected:
 
 public:
     virtual Boolean saveState (const char*) const;
-    virtual Boolean saveState (ofstream&) const;
+    virtual Boolean saveState (std::ofstream&) const;
     
     virtual Boolean restoreState (const char*);
-    virtual Boolean restoreState (ifstream&);
+    virtual Boolean restoreState (std::ifstream&);
 };
 
 #include <Stat/PHistogram.n>

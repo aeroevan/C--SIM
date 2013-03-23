@@ -28,7 +28,9 @@
  * $Id: MachineShop.cc,v 1.10 1998/08/28 14:19:49 nmcl Exp $
  */
 
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 #ifndef RESOURCE_H_
 #  include <Common/Resource.h>

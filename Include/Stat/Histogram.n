@@ -29,7 +29,7 @@
 
 #if defined(NO_INLINES) && !defined(HISTOGRAM_CC_)
 
-extern ostream& operator<< (ostream& strm, const Histogram& h);
+extern std::ostream& operator<< (std::ostream& strm, const Histogram& h);
 
 #else
 
@@ -45,7 +45,7 @@ INLINEF void Histogram::operator+= (double value)
     setValue(value);
 }
 
-INLINEF ostream& operator<< (ostream& strm, const Histogram& h)
+INLINEF std::ostream& operator<< (std::ostream& strm, const Histogram& h)
 {
     return h.print(strm);
 }

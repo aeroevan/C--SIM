@@ -27,9 +27,9 @@
  */
 
 #include <errno.h>
-#include <iostream.h>
-#include <fstream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
 #ifndef PHISTOGRAM_H_
 #  include <Stat/PHistogram.h>
@@ -160,9 +160,9 @@ Boolean PrecisionHistogram::sizeByIndex (long index, double& size)
 
     // we should never get here!
 
-    cerr
+    std::cerr
 		 << "PrecisionHistogram::sizeByIndex went off end of list."
-		 << endl;
+		 << std::endl;
 
     return FALSE;
 }
@@ -205,7 +205,7 @@ void PrecisionHistogram::setValue (double value)
     add(trail, value);
 }
 
-ostream& PrecisionHistogram::print (ostream& strm) const
+std::ostream& PrecisionHistogram::print (std::ostream& strm) const
 {
     if (length == 0)
 	strm << "Empty histogram\n";
@@ -217,7 +217,7 @@ ostream& PrecisionHistogram::print (ostream& strm) const
     return Variance::print(strm);
 }
 
-Boolean PrecisionHistogram::saveState (ofstream& oFile) const
+Boolean PrecisionHistogram::saveState (std::ofstream& oFile) const
 {
     if (!oFile)
 	return FALSE;
@@ -231,13 +231,13 @@ Boolean PrecisionHistogram::saveState (ofstream& oFile) const
 
 Boolean PrecisionHistogram::saveState (const char* fileName) const
 {
-    ofstream oFile(fileName, ios::out);
+    std::ofstream oFile(fileName, std::ios::out);
     Boolean result;
     
     if (!oFile)
     {
-	cerr << "PrecisionHistogram::saveState - error " << errno
-		     << " for file " << fileName << endl;
+        std::cerr << "PrecisionHistogram::saveState - error " << errno
+		     << " for file " << fileName << std::endl;
 	return FALSE;
     }
     
@@ -246,7 +246,7 @@ Boolean PrecisionHistogram::saveState (const char* fileName) const
     return result;
 }
 
-Boolean PrecisionHistogram::restoreState (ifstream& iFile)
+Boolean PrecisionHistogram::restoreState (std::ifstream& iFile)
 {
     long numberEntries;
     double bucketName;
@@ -276,14 +276,14 @@ Boolean PrecisionHistogram::restoreState (ifstream& iFile)
 
 Boolean PrecisionHistogram::restoreState (const char* fileName)
 {
-    ifstream iFile(fileName, ios::in);
+    std::ifstream iFile(fileName, std::ios::in);
     Boolean result;
     
     if (!iFile)
     {
-	cerr
+        std::cerr
 		     << "PrecisionHistogram::restoreState - error " << errno
-		     << " for file " << fileName << endl;
+		     << " for file " << fileName << std::endl;
 	return FALSE;
     }
     

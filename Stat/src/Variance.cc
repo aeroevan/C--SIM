@@ -28,9 +28,9 @@
 
 
 #include <errno.h>
-#include <iostream.h>
-#include <fstream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
 #ifndef VARIANCE_H_
 #  include <Stat/Variance.h>
@@ -60,11 +60,11 @@ double Variance::variance () const
 
 double Variance::confidence (double)
 {
-    cerr << "Variance::confidence not implemented yet." << endl;
+    std::cerr << "Variance::confidence not implemented yet." << std::endl;
     return 0.0;
 }
 
-Boolean Variance::saveState (ofstream& oFile) const
+Boolean Variance::saveState (std::ofstream& oFile) const
 {
     if (!oFile)
 	return FALSE;
@@ -75,13 +75,13 @@ Boolean Variance::saveState (ofstream& oFile) const
 
 Boolean Variance::saveState (const char* fileName) const
 {
-    ofstream oFile(fileName, ios::out);
+    std::ofstream oFile(fileName, std::ios::out);
     Boolean result;
     
     if (!oFile)
     {
-	cerr << "Variance::saveState - error "
-		     << errno << " for file " << fileName << endl;
+        std::cerr << "Variance::saveState - error "
+		     << errno << " for file " << fileName << std::endl;
 	return FALSE;
     }
     
@@ -90,7 +90,7 @@ Boolean Variance::saveState (const char* fileName) const
     return result;
 }
 
-Boolean Variance::restoreState (ifstream& iFile)
+Boolean Variance::restoreState (std::ifstream& iFile)
 {
     if (!iFile)
 	return FALSE;
@@ -102,13 +102,13 @@ Boolean Variance::restoreState (ifstream& iFile)
 
 Boolean Variance::restoreState (const char* fileName)
 {
-    ifstream iFile(fileName, ios::in);
+    std::ifstream iFile(fileName, std::ios::in);
     Boolean result;
     
     if (!iFile)
     {
-	cerr << "Variance::restoreState - error "
-		     << errno << " for file " << fileName << endl;
+        std::cerr << "Variance::restoreState - error "
+		     << errno << " for file " << fileName << std::endl;
 	return FALSE;
     }
     
@@ -117,10 +117,10 @@ Boolean Variance::restoreState (const char* fileName)
     return result;
 }
 
-ostream& Variance::print (ostream& strm) const
+std::ostream& Variance::print (std::ostream& strm) const
 {
-    strm << "\nVariance          : " << variance() << endl;
-    strm << "Standard Deviation: " << stdDev() << endl;
+    strm << "\nVariance          : " << variance() << std::endl;
+    strm << "Standard Deviation: " << stdDev() << std::endl;
 
     return Mean::print(strm);
 }

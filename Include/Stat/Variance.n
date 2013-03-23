@@ -31,7 +31,7 @@
 
 #if defined(NO_INLINES) && !defined(VARIANCE_CC_)
 
-extern ostream& operator<< (ostream& strm, const Variance& v);
+extern std::ostream& operator<< (std::ostream& strm, const Variance& v);
 
 #else
 
@@ -55,7 +55,7 @@ INLINEF double Variance::stdDev () const
 	return sqrt(variance());
 }
 
-INLINEF ostream& operator<< (ostream& strm, const Variance& v)
+INLINEF std::ostream& operator<< (std::ostream& strm, const Variance& v)
 {
     return v.print(strm);
 }

@@ -33,7 +33,8 @@
 */
 
 #include <stdlib.h>	// to get getopt and atoi
-#include <iostream.h>
+#include <iostream>
+#include <unistd.h>
 
 #include <ClassLib/Random.h>
 
@@ -53,11 +54,11 @@ void Gen (int count, RandomStream *r, const char *title)
     }
 
     // output a title followed by the bucket counts
-    cout << endl << '"' << title << '"' << endl;
+    std::cout << std::endl << '"' << title << '"' << std::endl;
     for (i=0; i<100; i++)
-	cout << i << ".0 " << bucket[i] << endl;
+	std::cout << i << ".0 " << bucket[i] << std::endl;
 
-    cerr << "Chi-Square error measure: " << r->Error() << endl;
+    std::cerr << "Chi-Square error measure: " << r->Error() << std::endl;
 
     delete r;
 }
@@ -90,14 +91,14 @@ int main (int argc, char **argv)
     //         argv[optind] == first non-flag argument
 
     if (errflg || (argc-optind)) {
-        cerr << "usage: " << argv[0] << "[-c <number>][-u][-n][-x][-h][-e]" << endl;
+        std::cerr << "usage: " << argv[0] << "[-c <number>][-u][-n][-x][-h][-e]" << std::endl;
 
-        cerr << "\t-c 99\t\tgenerate 99 points for each distribution" << endl;
-        cerr << "\t-u\t\toutput a data set for a uniform distribution" << endl;
-        cerr << "\t-n\t\toutput a data set for a normal distribution" << endl;
-        cerr << "\t-x\t\toutput a data set for an exponential distribution" << endl;
-        cerr << "\t-h\t\toutput a data set for a hyperexponential distribution" << endl;
-        cerr << "\t-e\t\toutput a data set for an erlang distribution" << endl;
+        std::cerr << "\t-c 99\t\tgenerate 99 points for each distribution" << std::endl;
+        std::cerr << "\t-u\t\toutput a data set for a uniform distribution" << std::endl;
+        std::cerr << "\t-n\t\toutput a data set for a normal distribution" << std::endl;
+        std::cerr << "\t-x\t\toutput a data set for an exponential distribution" << std::endl;
+        std::cerr << "\t-h\t\toutput a data set for a hyperexponential distribution" << std::endl;
+        std::cerr << "\t-e\t\toutput a data set for an erlang distribution" << std::endl;
         return 2;
     }
 
@@ -105,9 +106,9 @@ int main (int argc, char **argv)
     if (!uniform && !normal && !exponential && !hyperexponential && !erlang)
 	normal++;
 
-    cout << "TitleText: Random Number Distributions" 
+    std::cout << "TitleText: Random Number Distributions" 
 	 << " (" << count << " numbers/distribution)" 
-	 << endl;
+	 << std::endl;
 
     for (int q=0; q<skip; q++) delete new UniformStream(0.0, 100.0);
 

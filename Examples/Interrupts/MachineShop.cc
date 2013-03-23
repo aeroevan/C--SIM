@@ -26,7 +26,9 @@
  * UK.
  */
 
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 #ifndef RESOURCE_H_
 #  include <Common/Resource.h>

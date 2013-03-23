@@ -29,7 +29,7 @@
 
 #if defined(NO_INLINES) && !defined(QUANTILE_CC_)
 
-extern ostream& operator<< (ostream& strm, const Quantile& q);
+extern std::ostream& operator<< (std::ostream& strm, const Quantile& q);
 
 #else
 
@@ -45,7 +45,7 @@ INLINEF double Quantile::range () const
     return qProb;
 }
 
-INLINEF ostream& operator<< (ostream& strm, const Quantile& q)
+INLINEF std::ostream& operator<< (std::ostream& strm, const Quantile& q)
 {
     return q.print(strm);
 }

@@ -44,7 +44,7 @@ public:
     double operator() () const;
     double range () const;
 
-    virtual ostream& print (ostream&) const;
+    virtual std::ostream& print (std::ostream&) const;
 
 private:
     double qProb;

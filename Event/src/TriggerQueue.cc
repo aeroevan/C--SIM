@@ -58,7 +58,7 @@ TriggerQueue::~TriggerQueue ()
     {
 	if (head->numberOfElements() > 0)
 	{
-	    cerr << "TriggerQueue destructor called with non-zero list!" << endl;
+        std::cerr << "TriggerQueue destructor called with non-zero list!" << std::endl;
 	    (void) triggerAll();
 	}
 
@@ -71,8 +71,8 @@ Boolean TriggerQueue::triggerFirst (Boolean setTrigger)
     if (head->numberOfElements() == 0)
     {
 #ifdef DEBUG
-	cerr
-		     << "triggerFirst called with empty list." << endl;
+        std::cerr
+		     << "triggerFirst called with empty list." << std::endl;
 #endif
 	return FALSE;
     }
@@ -82,9 +82,9 @@ Boolean TriggerQueue::triggerFirst (Boolean setTrigger)
     if (removed == (Entity*) 0)
     {
 #ifdef DEBUG
-	cerr
+        std::cerr
 		     << "triggerFirst called and got a null entry from list!"
-		     << endl;
+		     << std::endl;
 #endif
 	return FALSE;
     }
@@ -104,7 +104,7 @@ Boolean TriggerQueue::triggerAll ()
     if (currentNumber == 0)
     {
 #ifdef DEBUG
-	cerr << "TriggerAll called with empty list." << endl;
+        std::cerr << "TriggerAll called with empty list." << std::endl;
 #endif
 	return FALSE;
     }
@@ -120,9 +120,9 @@ void TriggerQueue::insert (Entity* toAdd)
     if (toAdd->isWaiting())  // currently cannot be waiting for multiple events
     {
 #ifdef DEBUG
-	cerr
+        std::cerr
 		     << "TriggerQueue::insert called for entry which is already waiting."
-		     << endl;
+		     << std::endl;
 #endif
 	return;
     }

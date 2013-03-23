@@ -38,7 +38,9 @@
 #  include "Queue.h"
 #endif
 
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 
 extern Machine* M;

@@ -27,12 +27,14 @@
  */
 
 #include <string.h>
-#include <iostream.h>
+#include <iostream>
 #include <stdlib.h>
 
 #ifndef PARETO_H_
 #  include <Stat/Pareto.h>
 #endif
+
+using namespace std;
 
 int main (int argc, char** argv)
 {

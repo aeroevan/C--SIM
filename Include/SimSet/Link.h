@@ -43,6 +43,10 @@
 #  include <SimSet/Linkage.h>
 #endif
 
+#ifndef HEAD_H_
+#  include <SimSet/Head.h>
+#endif
+
 
 class Link : public Linkage
 {

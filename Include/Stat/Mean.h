@@ -29,8 +29,8 @@
 #ifndef MEAN_H_
 #define MEAN_H_
 
-#include <iostream.h>
-#include <fstream.h>
+#include <iostream>
+#include <fstream>
 
 #ifndef BOOLEAN_H_
 #  include <Common/Boolean.h>
@@ -55,7 +55,7 @@ public:
     double sum () const;
     double mean () const;
 
-    virtual ostream& print (ostream&) const;    
+    virtual std::ostream& print (std::ostream&) const;    
     
 protected:
     double _Max, _Min;
@@ -64,10 +64,10 @@ protected:
 
 public:
     virtual Boolean saveState (const char*) const;
-    virtual Boolean saveState (ofstream&) const;
+    virtual Boolean saveState (std::ofstream&) const;
     
     virtual Boolean restoreState (const char*);
-    virtual Boolean restoreState (ifstream&);
+    virtual Boolean restoreState (std::ifstream&);
 };
 
 #include <Stat/Mean.n>

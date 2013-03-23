@@ -29,9 +29,9 @@
  */
 
 #include <errno.h>
-#include <iostream.h>
-#include <fstream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
 #ifndef SHISTOGRAM_H_
 #  include <Stat/SHistogram.h>
@@ -96,10 +96,10 @@ void SimpleHistogram::setValue (double value)
 {
     if ((value < minIndex) || (value > maxIndex))
     {
-        cerr << "Value " << value
+        std::cerr << "Value " << value
 		     << " is beyond histogram range "
 		     << "[ " << minIndex << ", "
-		     << maxIndex << " ]" << endl;
+		     << maxIndex << " ]" << std::endl;
 	return;
     }
 
@@ -116,12 +116,12 @@ void SimpleHistogram::setValue (double value)
 
     // shouldn't get here!!
 
-    cerr
+    std::cerr
 		 << "SimpleHistogram::setValue - Something went wrong with "
-		 << value << endl;
+		 << value << std::endl;
 }
 
-ostream& SimpleHistogram::print (ostream& strm) const
+std::ostream& SimpleHistogram::print (std::ostream& strm) const
 {
     strm << "Maximum index range  : " << maxIndex << "\n";
     strm << "Minimum index range  : " << minIndex << "\n";
@@ -131,7 +131,7 @@ ostream& SimpleHistogram::print (ostream& strm) const
     return PrecisionHistogram::print(strm);
 }
 
-Boolean SimpleHistogram::saveState (ofstream& oFile) const
+Boolean SimpleHistogram::saveState (std::ofstream& oFile) const
 {
     if (!oFile)
 	return FALSE;
@@ -144,13 +144,13 @@ Boolean SimpleHistogram::saveState (ofstream& oFile) const
 
 Boolean SimpleHistogram::saveState (const char* fileName) const
 {
-    ofstream oFile(fileName, ios::out);
+    std::ofstream oFile(fileName, std::ios::out);
     Boolean result;
     
     if (!oFile)
     {
-	cerr << "SimpleHistogram::saveState - error "
-		     << errno << " for file " << fileName << endl;
+        std::cerr << "SimpleHistogram::saveState - error "
+		     << errno << " for file " << fileName << std::endl;
 	return FALSE;
     }
     
@@ -159,7 +159,7 @@ Boolean SimpleHistogram::saveState (const char* fileName) const
     return result;
 }
 
-Boolean SimpleHistogram::restoreState (ifstream& iFile)
+Boolean SimpleHistogram::restoreState (std::ifstream& iFile)
 {
     if (!iFile)
 	return FALSE;
@@ -172,13 +172,13 @@ Boolean SimpleHistogram::restoreState (ifstream& iFile)
 
 Boolean SimpleHistogram::restoreState (const char* fileName)
 {
-    ifstream iFile(fileName, ios::in);
+    std::ifstream iFile(fileName, std::ios::in);
     Boolean result;
     
     if (!iFile)
     {
-	cerr << "SimpleHistogram::restoreState - error "
-		     << errno << " for file " << fileName << endl;
+        std::cerr << "SimpleHistogram::restoreState - error "
+		     << errno << " for file " << fileName << std::endl;
 	return FALSE;
     }
     

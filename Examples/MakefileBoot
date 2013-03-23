@@ -1,4 +1,6 @@
 #
+# Makefile for creating the top-level test Makefile.
+#
 # Copyright 1990-2008, Mark Little, University of Newcastle upon Tyne
 # and others contributors as indicated 
 # by the @authors tag. All rights reserved. 
@@ -16,8 +18,6 @@
 # MA  02110-1301, USA.
 # 
 # (C) 1990-2008,
-#
-# Makefile for creating the top-level test Makefile.
 #
 # Copyright (C) 1993
 # 

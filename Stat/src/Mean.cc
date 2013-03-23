@@ -27,9 +27,9 @@
  */
 
 #include <errno.h>
-#include <iostream.h>
-#include <fstream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 #include <limits>
 #include <math.h>
 

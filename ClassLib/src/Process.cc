@@ -131,13 +131,13 @@ void Scheduler::reset () const
 
 double Scheduler::CurrentTime () const { return SimulatedTime; }
 
-void Scheduler::print (ostream& strm)
+void Scheduler::print (std::ostream& strm)
 {
-    strm << "Scheduler queue:\n" << endl;
+    strm << "Scheduler queue:\n" << std::endl;
     
     ReadyQueue.print(strm);
 
-    strm << "End of scheduler queue." << endl;
+    strm << "End of scheduler queue." << std::endl;
 }
 
 //
@@ -189,13 +189,13 @@ void Process::set_evtime (double time)
 	if (time >= Process::CurrentTime())
 	    wakeuptime = time;
 	else
-	    cerr
+	    std::cerr
 			 << "Process::set_evtime - time " << time
-			 << " invalid" << endl;
+			 << " invalid" << std::endl;
     }
     else
-        cerr
-		     << "Process::set_evtime called for idle process." << endl;
+        std::cerr
+		     << "Process::set_evtime called for idle process." << std::endl;
 }
 
 // return process to be activated after this process.
@@ -221,7 +221,7 @@ void Process::ActivateBefore (Process &p)
     if (ReadyQueue.InsertBefore(*this, p))
 	wakeuptime = p.wakeuptime;
     else
-	cerr << "ActivateBefore failed because 'before' process is not scheduled" << endl;
+	std::cerr << "ActivateBefore failed because 'before' process is not scheduled" << std::endl;
 }
 
 void Process::ActivateAfter (Process &p)
@@ -233,7 +233,7 @@ void Process::ActivateAfter (Process &p)
     if (ReadyQueue.InsertAfter(*this, p))
 	wakeuptime = p.wakeuptime;
     else
-	cerr << "ActivateAfter failed because 'after' process is not scheduled" << endl;
+	std::cerr << "ActivateAfter failed because 'after' process is not scheduled" << std::endl;
 }
 
 /*
@@ -341,13 +341,13 @@ Boolean Process::schedule ()
 
 	if (Process::Current == (Process*) 0)    // all done
 	{
-	    cout << "Scheduler queue is empty. Simulation ending" << endl;
+        std::cout << "Scheduler queue is empty. Simulation ending" << std::endl;
 	    Thread::Exit();
 	}
 
 	if (Process::Current->evtime() < 0)
 	{
-	    cerr << "Scheduler Error: Process WakeupTime "
+        std::cerr << "Scheduler Error: Process WakeupTime "
 			 << Process::Current->evtime() << " invalid.\n";
 	}
 	else
@@ -355,7 +355,7 @@ Boolean Process::schedule ()
 
 #ifdef DEBUG
 	debug_stream << FUNCTIONS << FAC_SCHEDULER << VIS_PUBLIC;
-	debug_stream << "Simulated time is now " << SimulatedTime << endl;
+	debug_stream << "Simulated time is now " << SimulatedTime << std::endl;
 #endif
 
 	if (Process::Current != this)
@@ -408,7 +408,7 @@ void Process::Cancel ()
 void Process::reset ()
 {
 #ifdef DEBUG    
-    cerr << "Reset of process called." << endl;
+    std::cerr << "Reset of process called." << std::endl;
 #endif    
 }
 
@@ -440,13 +440,13 @@ void Process::Hold (double t)
 	    Suspend();
 	}
 	else
-	    cerr
+	    std::cerr
 			 << "Process::Hold - can only be applied to active object."
-			 << endl;
+			 << std::endl;
     }
     else
-	cerr << "Process::Hold - time " << t
-		     << " invalid." << endl;
+	std::cerr << "Process::Hold - time " << t
+		     << " invalid." << std::endl;
 }
 
 // this works on active and scheduled processes

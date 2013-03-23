@@ -26,8 +26,10 @@
  * UK.
  */
 
-#include <iostream.h>
+#include <iostream>
 #include <string.h>
+
+using namespace std;
 
 
 #ifndef BOOLEAN_H_

@@ -28,9 +28,9 @@
 
 
 #include <errno.h>
-#include <iostream.h>
-#include <fstream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 
 #ifndef PROCESS_H_
 #  include <ClassLib/Process.h>
@@ -86,7 +86,7 @@ void TimeVariance::setValue (double value)
     store(value);
 }
 
-Boolean TimeVariance::saveState (ofstream& oFile) const
+Boolean TimeVariance::saveState (std::ofstream& oFile) const
 {
     if (!oFile)
 	return FALSE;
@@ -100,13 +100,13 @@ Boolean TimeVariance::saveState (ofstream& oFile) const
 
 Boolean TimeVariance::saveState (const char* fileName) const
 {
-    ofstream oFile(fileName, ios::out);
+    std::ofstream oFile(fileName, std::ios::out);
     Boolean result;
     
     if (!oFile)
     {
-	cerr << "TimeVariance::saveState - error " << errno
-		     << " for file " << fileName << endl;
+        std::cerr << "TimeVariance::saveState - error " << errno
+		     << " for file " << fileName << std::endl;
 	return FALSE;
     }
     
@@ -115,7 +115,7 @@ Boolean TimeVariance::saveState (const char* fileName) const
     return result;
 }
 
-Boolean TimeVariance::restoreState (ifstream& iFile)
+Boolean TimeVariance::restoreState (std::ifstream& iFile)
 {
     if (!iFile)
 	return FALSE;
@@ -129,13 +129,13 @@ Boolean TimeVariance::restoreState (ifstream& iFile)
 
 Boolean TimeVariance::restoreState (const char* fileName)
 {
-    ifstream iFile(fileName, ios::in);
+    std::ifstream iFile(fileName, std::ios::in);
     Boolean result;
     
     if (!iFile)
     {
-	cerr << "TimeVariance::restoreState - error " << errno
-		     << " for file " << fileName << endl;
+        std::cerr << "TimeVariance::restoreState - error " << errno
+		     << " for file " << fileName << std::endl;
 	return FALSE;
     }
     
